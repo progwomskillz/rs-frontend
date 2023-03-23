@@ -1,0 +1,21 @@
+.sign-in {
+  min-height: 100vh;
+  padding: 50px 0;
+  display: grid;
+  place-items: center;
+}
+
+.sign-in__form-wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.sign-in__form {
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+.sign-in__form-row {
+  display: grid;
+  grid-row-gap: 5px;
+}

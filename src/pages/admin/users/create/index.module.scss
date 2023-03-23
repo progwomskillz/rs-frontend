@@ -1,0 +1,15 @@
+.users-create__form-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 50px auto;
+}
+
+.users-create__form {
+  display: grid;
+  grid-row-gap: 20px;
+}
+
+.users-create__form-row {
+  display: grid;
+  grid-row-gap: 5px;
+}
