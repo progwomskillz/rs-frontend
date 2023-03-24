@@ -3,7 +3,7 @@ import PollsCreate from "pages/community-social-worker/polls/create";
 import Polls from "pages/community-social-worker/polls";
 import s from "./index.module.scss";
 
-const Admin = () => (
+const CommunitySocialWorker = () => (
   <div>
     <nav className="navbar navbar-light bg-light" style={{padding: 8}}>
       <div className={s["header__left"]}>
@@ -34,4 +34,4 @@ const Admin = () => (
   </div>
 );
 
-export default Admin;
+export default CommunitySocialWorker;

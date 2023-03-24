@@ -19,9 +19,15 @@ const getPage = (page, page_size, user_id) => {
   return serviceApi.get(baseURL, params);
 }
 
+const getSummary = () => serviceApi.get(`${baseURL}/summary`);
+
+const sendReviseRequest = id => serviceApi.post(`${baseURL}/${id}/revise_request`);
+
 const service = {
   create,
-  getPage
+  getPage,
+  getSummary,
+  sendReviseRequest
 };
 
 export default service;

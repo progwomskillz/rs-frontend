@@ -8,6 +8,7 @@ import SignIn from "pages/sign-in";
 import SignOut from "pages/sign-out";
 import Admin from "pages/admin";
 import CommunitySocialWorker from "pages/community-social-worker";
+import PublicOfficial from "pages/public-official";
 import serviceAuth from "services/auth";
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
           <Route path="/cabinet" element={<Cabinet />} />
           <Route path="/admin/*" element={<Admin />} />
           <Route path="/community-social-worker/*" element={<CommunitySocialWorker />} />
+          <Route path="/public-official/*" element={<PublicOfficial />} />
           <Route path="/sign-out" element={<SignOut />} />
         </Route>
         <Route path="*" element={<Navigate to="/sign-in" />} />
