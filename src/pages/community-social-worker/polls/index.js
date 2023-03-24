@@ -2,32 +2,31 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "components/Pagination";
 import Loader from "components/Loader";
-import serviceUsers from "services/users";
+import servicePolls from "services/polls";
+import s from "./index.module.scss";
 
-const Users = () => {
-  const [users, setUsers] = useState([]);
+const Polls = () => {
+  const [polls, setPolls] = useState([]);
   const [pageCount, setPageCount] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const role = searchParams.get("role") || "";
-  const presentation = searchParams.get("presentation") || "";
   const page = parseInt(searchParams.get("page")) || 1;
   const pageSize = parseInt(searchParams.get("page_size")) || 10;
 
   useEffect(() => {
-    setUsers([]);
+    setPolls([]);
     setIsLoading(true);
-    serviceUsers.getPage(role, page, pageSize).then(
+    servicePolls.getPage(page, pageSize).then(
       data => {
-        setUsers(data.items);
+        setPolls(data.items);
         setPageCount(data.page_count);
       }
     ).finally(
       () => setIsLoading(false)
     );
-  }, [role, page, pageSize])
+  }, [page, pageSize])
 
   const handleChangePage = page => {
     searchParams.set("page", page);
@@ -36,24 +35,34 @@ const Users = () => {
 
   return (
     <div>
-      <h3>{presentation}</h3>
+      <h3>Statistics</h3>
       <table className="table">
         <thead>
           <tr>
             <th>ID</th>
-            <th>Username</th>
-            <th>First name</th>
-            <th>Last name</th>
+            <th>Community name</th>
+            <th>Community size</th>
+            <th>Summary</th>
           </tr>
         </thead>
         <tbody>
           {
-            users.map(user => (
-              <tr key={user.id}>
-                <th>{user.id}</th>
-                <td>{user.username}</td>
-                <td>{user.profile.first_name}</td>
-                <td>{user.profile.last_name}</td>
+            polls.map(poll => (
+              <tr key={poll.id}>
+                <th>{poll.id}</th>
+                <td>{poll.community_name}</td>
+                <td>{poll.community_size}</td>
+                <td>
+                  {
+                    poll.summary.map(stats => (
+                      <div className={s["polls__stats"]} key={stats.title}>
+                        <p>Title: <b>{stats.title}</b></p>
+                        <p>Count: <b>{stats.count}</b></p>
+                        <p>Percentage: <b>{stats.percentage}%</b></p>
+                      </div>
+                    ))
+                  }
+                </td>
               </tr>
             ))
           }
@@ -70,4 +79,4 @@ const Users = () => {
   )
 };
 
-export default Users;
+export default Polls;

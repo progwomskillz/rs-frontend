@@ -7,7 +7,7 @@ const Admin = () => (
   <div>
     <nav className="navbar navbar-light bg-light" style={{padding: 8}}>
       <div className={s["header__left"]}>
-        <span className="navbar-brand mb-0 h1">Rural Senses Admin</span>
+        <span className="navbar-brand mb-0 h1">Rural Senses (Admin)</span>
         <Link className="nav-link" to="/admin/users?role=community_social_worker&page=1&page_size=10&presentation=Community social workers">
           <button type="button" className="btn btn-light">Community social workers</button>
         </Link>

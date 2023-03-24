@@ -15,8 +15,6 @@ const UsersCreate = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
-  console.log(Object.keys(errors))
-
   const isButtonDisabled = !username || !password || !firstName || !lastName;
 
   const handleSubmit = e => {
@@ -68,44 +66,44 @@ const UsersCreate = () => {
         <div className="card-body">
           <form className={s["users-create__form"]} onSubmit={handleSubmit}>
             <div className={`form-group ${s["users-create__form-row"]}`}>
-              <label htmlFor="sign-in-form__username">Username</label>
+              <label htmlFor="users-create-form__username">Username</label>
               <input
                 type="text"
                 className="form-control"
-                id="sign-in-form__username"
+                id="users-create-form__username"
                 placeholder="Username"
                 value={username}
                 onChange={e => handleChangeInput(e.target.value, "username")}
               />
             </div>
             <div className={`form-group ${s["users-create__form-row"]}`}>
-              <label htmlFor="sign-in-form__username">Password</label>
+              <label htmlFor="users-create-form__password">Password</label>
               <input
                 type="text"
                 className="form-control"
-                id="sign-in-form__password"
+                id="users-create-form__password"
                 placeholder="Password"
                 value={password}
                 onChange={e => handleChangeInput(e.target.value, "password")}
               />
             </div>
             <div className={`form-group ${s["users-create__form-row"]}`}>
-              <label htmlFor="sign-in-form__username">First name</label>
+              <label htmlFor="users-create-form__first-name">First name</label>
               <input
                 type="text"
                 className="form-control"
-                id="sign-in-form__firstName"
+                id="users-create-form__first-name"
                 placeholder="First name"
                 value={firstName}
                 onChange={e => handleChangeInput(e.target.value, "firstName")}
               />
             </div>
             <div className={`form-group ${s["users-create__form-row"]}`}>
-              <label htmlFor="sign-in-form__username">Last name</label>
+              <label htmlFor="users-create-form__last-name">Last name</label>
               <input
                 type="text"
                 className="form-control"
-                id="sign-in-form__firstName"
+                id="users-create-form__last-name"
                 placeholder="Last name"
                 value={lastName}
                 onChange={e => handleChangeInput(e.target.value, "lastName")}

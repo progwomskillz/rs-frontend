@@ -23,20 +23,20 @@ const Pagination = ({
 
   return (
     <nav style={{margin: "auto", width: "fit-content"}}>
-      <ul class="pagination">
-        <li class="page-item"><p class="page-link" onClick={handleClickFirst}>First</p></li>
+      <ul className="pagination">
+        <li className="page-item"><p className="page-link" onClick={handleClickFirst}>First</p></li>
         {
-          page !== 1 && (
-            <li class="page-item"><p class="page-link" onClick={() => onChangePage(page-1)}>{page-1}</p></li>
+          !isFirst && (
+            <li className="page-item"><p className="page-link" onClick={() => onChangePage(page-1)}>{page-1}</p></li>
           )
         }
-        <li class="page-item active"><p class="page-link">{page}</p></li>
+        <li className="page-item active"><p className="page-link">{page}</p></li>
         {
-          page !== pageCount && (
-            <li class="page-item"><p class="page-link" onClick={() => onChangePage(page+1)}>{page+1}</p></li>
+          !isLast && (
+            <li className="page-item"><p className="page-link" onClick={() => onChangePage(page+1)}>{page+1}</p></li>
           )
         }
-        <li class="page-item"><p class="page-link" onClick={handleClickLast}>Last</p></li>
+        <li className="page-item"><p className="page-link" onClick={handleClickLast}>Last</p></li>
       </ul>
     </nav>
   );
