@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import PollsCreate from "pages/community-social-worker/polls/create";
 import Polls from "pages/community-social-worker/polls";
+import Messages from "pages/community-social-worker/messages";
 import s from "./index.module.scss";
 
 const CommunitySocialWorker = () => (
@@ -14,7 +15,7 @@ const CommunitySocialWorker = () => (
         <Link className="nav-link" to="/community-social-worker/polls?page=1&page_size=10">
           <button type="button" className="btn btn-light">Review statistics</button>
         </Link>
-        <Link className="nav-link" to="/community-social-worker/messages">
+        <Link className="nav-link" to="/community-social-worker/messages?page=1&page_size=10">
           <button type="button" className="btn btn-light">Messages</button>
         </Link>
       </div>
@@ -27,8 +28,8 @@ const CommunitySocialWorker = () => (
       <Routes>
         <Route path="/polls/create" element={<PollsCreate />} />
         <Route path="/polls" element={<Polls />} />
-        <Route path="/messages" element={<></>} />
-        <Route path="*" element={<Navigate to="/community-social-worker/messages" />} />
+        <Route path="/messages" element={<Messages />} />
+        <Route path="*" element={<Navigate to="/community-social-worker/messages?page=1&page_size=10" />} />
       </Routes>
     </section>
   </div>

@@ -15,8 +15,8 @@ const Polls = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const page = parseInt(searchParams.get("page")) || 1;
-  const pageSize = parseInt(searchParams.get("page_size")) || 10;
+  const page = parseInt(searchParams.get("page")) > 0 ? parseInt(searchParams.get("page")) : 1;
+  const pageSize = parseInt(searchParams.get("page_size")) > 0 ? parseInt(searchParams.get("page_size")) : 10;
 
   useEffect(() => {
     const fetch = async () => {
